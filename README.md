@@ -1,2 +1,2 @@
 # ninja-mangeenginesync
-This will sync your assets from ninjaone to manageengine asset management
+You need to create a 'script runner' 
