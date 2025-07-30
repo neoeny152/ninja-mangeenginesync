@@ -9,6 +9,14 @@ The script uses the asset's **serial number** as the unique identifier to match 
 - **User:** Assigned based on the last logged-on user from NinjaOne, enriched with the full name from Active Directory if available.
 - **Department:** Updated based on the user's department information from Active Directory.
 
+## **Important: Asset Creation Workflow**
+
+This script is designed to **update existing assets** in ManageEngine; it does **not** create new ones. The expected workflow is as follows:
+
+1. **Manual Asset Creation**: When a new computer arrives, it must be manually entered into ManageEngine ServiceDesk Plus with generic information (e.g., a placeholder name, no assigned user) and its correct serial number.
+2. **Device Setup & NinjaOne Sync**: The device is then set up for a user and the NinjaOne agent is installed. The device will automatically appear in your NinjaOne console.
+3. **Automated Asset Update**: This script runs on a schedule. It finds the device in NinjaOne, looks up its serial number, and then finds the corresponding pre-existing asset in ManageEngine. It then updates the generic information with the specific details pulled from NinjaOne and Active Directory, effectively assigning the asset to the correct user and department.
+
 ## **Prerequisites: The Secure Script Runner**
 
 For security, it is critical to run this script from a dedicated and isolated machine. This machine will have access to API credentials with high-level permissions.
